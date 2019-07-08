@@ -36,6 +36,24 @@
             <!-- Building application -->
             <plugin>
                 <artifactId>maven-ear-plugin</artifactId>
+                <version>2.10.1</version>
+                <configuration>
+                    <version>${version.jee}</version>
+                    <defaultLibBundleDir>${defaultLibBundleDir}</defaultLibBundleDir>
+                    <modules>
+                        <ejbModule>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>weblogic-ejb</artifactId>
+                            <!--                                <unpack>false</unpack>-->
+                        </ejbModule>
+                        <webModule>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>weblogic-web</artifactId>
+                            <contextRoot>${contextRoot}</contextRoot>
+                        </webModule>
+                    </modules>
+                    <fileNameMapping>no-version</fileNameMapping>
+                </configuration>
             </plugin>
 
             <!-- Action to WebLogic Server -->

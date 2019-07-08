@@ -1,3 +1,6 @@
+package com.sample;
+
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -6,11 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "helloworld", urlPatterns = {"/helloworld"})
-public class ServletSample extends HttpServlet{
+public class ServletSample extends HttpServlet {
+
+    @Inject
+    private SampleEjb sampleEjb;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         System.out.println("************************Servlet********************************");
         res.getWriter().println("Hello World!");
+//        sampleEjb.create();
+        sampleEjb.create();
     }
 }
