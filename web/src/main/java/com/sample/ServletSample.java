@@ -18,7 +18,6 @@ public class ServletSample extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         System.out.println("************************Servlet********************************");
         res.getWriter().println("Hello World!");
-//        sampleEjb.create();
         sampleEjb.create();
     }
 }
