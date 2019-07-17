@@ -18,18 +18,15 @@
             <property name="eclipselink.ddl-generation.output-mode" value="both"/>
         </properties>
     </persistence-unit>
-<!--    <persistence-unit name="ENS-pu-2" transaction-type="JTA">-->
-<!--        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>-->
-<!--        <jta-data-source>jdbc/ENSDS</jta-data-source>-->
-<!--        <exclude-unlisted-classes>false</exclude-unlisted-classes>-->
-<!--        <shared-cache-mode>NONE</shared-cache-mode>-->
-<!--        <properties>-->
-<!--            <property name="eclipselink.logging.level" value="${jpa.log.level}"/>-->
-<!--            <property name="eclipselink.jdbc.batch-writing" value="JDBC"/>-->
-<!--            <property name="eclipselink.jdbc.batch-writing.size" value="500"/>-->
-<!--            &lt;!&ndash;<property name="javax.persistence.schema-generation.database.action" value="create"/>&ndash;&gt;-->
-<!--            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>-->
-<!--            &lt;!&ndash;<property name="eclipselink.ddl-generation.output-mode" value="both"/>&ndash;&gt;-->
-<!--        </properties>-->
-<!--    </persistence-unit>-->
+    <persistence-unit name="ENS-pu-2" transaction-type="JTA">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <jta-data-source>jdbc/ENSDS</jta-data-source>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <shared-cache-mode>NONE</shared-cache-mode>
+        <properties>
+            <property name="eclipselink.logging.level" value="${jpa.log.level}"/>
+            <property name="eclipselink.jdbc.batch-writing" value="JDBC"/>
+            <property name="eclipselink.jdbc.batch-writing.size" value="500"/>
+        </properties>
+    </persistence-unit>
 </persistence>
