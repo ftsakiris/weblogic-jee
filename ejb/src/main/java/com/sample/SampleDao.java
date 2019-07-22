@@ -1,26 +1,19 @@
 package com.sample;
 
 import com.sample.common.AbstractCrudDao;
-import com.sample.em.SampleEmQualifier1;
 
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
+import javax.ejb.Stateless;
 import java.util.List;
 
-@SampleEmQualifier1
+@Stateless
 public class SampleDao extends AbstractCrudDao {
 
-    @Inject
-    public SampleDao(@SampleEmQualifier1 EntityManager em) {
-        super(em);
+    public SampleJpo get(String unitName, String mrn) {
+        return findSingle(unitName, SampleJpo.class, "mrn", mrn);
     }
 
-    public SampleJpo get(String mrn) {
-        return findSingle(SampleJpo.class, "mrn", mrn);
-    }
-
-    public List<SampleJpo> findList(String fieldName, Object fieldValue) {
-        return super.findList(SampleJpo.class, fieldName, fieldValue);
+    public List<SampleJpo> findList(String unitName, String fieldName, Object fieldValue) {
+        return super.findList(unitName, SampleJpo.class, fieldName, fieldValue);
     }
 }
 

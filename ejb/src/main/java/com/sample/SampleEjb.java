@@ -1,7 +1,5 @@
 package com.sample;
 
-import com.sample.em.SampleEmQualifier1;
-
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.time.LocalDateTime;
@@ -10,11 +8,14 @@ import java.time.LocalDateTime;
 public class SampleEjb {
 
     @Inject
-    @SampleEmQualifier1
     private SampleDao sampleDao;
 
+    public void create(String unitName) {
+        sampleDao.save(unitName, new SampleJpo("dsds", LocalDateTime.now(), "dssds"));
+    }
+
     public void create() {
-        sampleDao.save(new SampleJpo("dsds", LocalDateTime.now(), "dssds"));
+        create("ENS-pu-1");
     }
 
     public int add(int x, int y) {
