@@ -20,20 +20,22 @@ public class EntityManagerProvider {
         entityManagerMap = new HashMap<>();
     }
 
-    public EntityManager getEntityManager(String unitName) {
-        final EntityManager entityManager = entityManagerMap.get(unitName);
+    public EntityManager getEntityManager(String jdbc) {
+        final EntityManager entityManager = entityManagerMap.get(jdbc);
         if (entityManager == null) {
-            return initEntityManager(unitName);
+            final EntityManager newEntityManager = initEntityManager(jdbc);
+            entityManagerMap.put(jdbc, newEntityManager);
+            return newEntityManager;
         }
         return entityManager;
     }
 
-    private EntityManager initEntityManager(String unitName) {
+    private EntityManager initEntityManager(String jdbc) {
         final Map props = new HashMap();
-//        props.put(PersistenceUnitProperties.JTA_DATASOURCE, "dataSource");
-        final EntityManagerFactory emf = Persistence.createEntityManagerFactory(unitName, props);
+        props.put(PersistenceUnitProperties.JTA_DATASOURCE, jdbc);
+        final EntityManagerFactory emf = Persistence.createEntityManagerFactory("ENS-pu-1", props);
         final EntityManager em = emf.createEntityManager();
-        entityManagerMap.get(unitName);
+        entityManagerMap.get(jdbc);
         return em;
     }
 }

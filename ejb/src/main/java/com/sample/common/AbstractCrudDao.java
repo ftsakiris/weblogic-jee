@@ -24,9 +24,9 @@ public class AbstractCrudDao {
     @Inject
     protected EntityManagerProvider entityManagerProvider;
 
-    public <T> void save(String unitName, T obj) {
+    public <T> void save(String jdbc, T obj) {
         Assert.isNotNull(obj, ARGUMENT_OBJECT);
-        entityManagerProvider.getEntityManager(unitName).persist(obj);
+        entityManagerProvider.getEntityManager(jdbc).persist(obj);
     }
 
     public <T> T findSingle(String unitName, Class<T> type, String fieldName, Object fieldValue) {

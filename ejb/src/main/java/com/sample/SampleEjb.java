@@ -10,12 +10,12 @@ public class SampleEjb {
     @Inject
     private SampleDao sampleDao;
 
-    public void create(String unitName) {
-        sampleDao.save(unitName, new SampleJpo("dsds", LocalDateTime.now(), "dssds"));
+    public void create(String jdbc) {
+        sampleDao.save(jdbc, new SampleJpo("dsds", LocalDateTime.now(), "dssds"));
     }
 
     public void create() {
-        create("ENS-pu-1");
+        create("jdbc/ENSDS");
     }
 
     public int add(int x, int y) {

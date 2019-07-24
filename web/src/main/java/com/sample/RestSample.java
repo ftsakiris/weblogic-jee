@@ -12,8 +12,8 @@ public class RestSample {
     private SampleEjb sampleEjb;
 
     @GET
-    public String create(@QueryParam("unitName") String unitName) {
-        sampleEjb.create(unitName);
-        return unitName;
+    public String create(@QueryParam("jdbc") String jdbc) {
+        sampleEjb.create(jdbc);
+        return jdbc;
     }
 }
